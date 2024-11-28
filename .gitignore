@@ -1,0 +1,10 @@
+# build output
+/dist
+
+# node
+/npm-debug.log
+/node_modules
+
+# Yarn
+/yarn.lock
+/yarn-error.log

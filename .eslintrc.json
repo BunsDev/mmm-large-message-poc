@@ -1,0 +1,43 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["dist/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "plugins": ["@typescript-eslint"]
+    },
+    {
+      "env": {
+        "node": true
+      },
+      "files": ["rollup.config.js"],
+      "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2021
+      }
+    }
+  ],
+  "plugins": ["prettier"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}

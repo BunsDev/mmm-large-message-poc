@@ -1,0 +1,87 @@
+{
+  "name": "website-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A project template for a website created with React and TypeScript",
+  "license": "ISC",
+  "scripts": {
+    "build": "rimraf dist/* && rollup --config rollup.config.js && cpy './src/*.html' dist",
+    "build:prod": "cross-env NODE_ENV=production npm run build",
+    "lint": "tsc && npm run lint:eslint && npm run lint:misc -- --check",
+    "lint:eslint": "eslint . --ext js,ts",
+    "lint:fix": "tsc && npm run lint:eslint -- --fix && npm run lint:misc -- --write",
+    "lint:misc": "prettier \"**/*.json\" \"**/*.md\" --ignore-path .gitignore",
+    "setup": "npm install && allow-scripts",
+    "test": "ava"
+  },
+  "ava": {
+    "extensions": [
+      "ts",
+      "tsx"
+    ],
+    "failWithoutAssertions": true,
+    "files": [
+      "src/**/*.test.{ts,tsx}"
+    ],
+    "require": [
+      "ts-node/register",
+      "global-jsdom/register",
+      "./test/setup.ts"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^3.22.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@lavamoat/allow-scripts": "^2.0.2",
+    "@lavamoat/preinstall-always-fail": "^1.0.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@testing-library/react": "^13.1.1",
+    "@types/jsdom": "^16.2.14",
+    "@types/react": "^18.0.6",
+    "@types/react-dom": "^18.0.2",
+    "@types/sinon": "^10.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "ava": "^4.2.0",
+    "cpy-cli": "^4.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "global-jsdom": "^8.4.0",
+    "jsdom": "^19.0.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-packagejson": "^2.2.17",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.2",
+    "sinon": "^13.0.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "engines": {
+    "node": ">=16.4.0",
+    "npm": ">=7.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "lavamoat": {
+    "allowScripts": {
+      "core-js": false,
+      "@lavamoat/preinstall-always-fail": false
+    }
+  }
+}

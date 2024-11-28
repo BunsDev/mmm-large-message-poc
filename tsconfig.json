@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "jsx": "preserve",
+    "lib": ["DOM", "ES2021"],
+    "module": "CommonJS",
+    "noEmit": true,
+    "noImplicitOverride": true,
+    "target": "es2021",
+    "sourceMap": true,
+    "strict": true
+  },
+  "include": ["src/**/*", "test/**/*", "types/**/*"],
+  "ts-node": {
+    "compilerOptions": {
+      "jsx": "react-jsx"
+    },
+    "transpileOnly": true
+  }
+}
